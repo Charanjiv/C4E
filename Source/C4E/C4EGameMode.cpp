@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #include "C4EGameMode.h"
 
 #include "C4EPlayerController.h"

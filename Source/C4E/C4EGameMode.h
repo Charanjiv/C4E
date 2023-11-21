@@ -53,8 +53,6 @@ protected:
 
 	virtual bool ReadyToStartMatch_Implementation() override;
 	virtual bool ReadyToEndMatch_Implementation() override;
-	
-	
 };
 
 
