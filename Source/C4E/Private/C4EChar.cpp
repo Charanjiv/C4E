@@ -7,6 +7,8 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "Perception/AISense_Sight.h"
 
 AC4EChar::AC4EChar()
 {
@@ -19,6 +21,8 @@ AC4EChar::AC4EChar()
 
 	_WeaponAttachPoint = CreateDefaultSubobject<USceneComponent>(TEXT("WeaponAttachPoint"));
 	_WeaponAttachPoint->SetupAttachment(_Camera);
+
+	SetupStimulusSource();
 	
 }
 
@@ -83,5 +87,15 @@ void AC4EChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 		EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AC4EChar::Shoot);
 		
+	}
+}
+
+void AC4EChar::SetupStimulusSource()
+{
+	StimulusSorce = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("Stimulus"));
+	if(StimulusSorce)
+	{
+		StimulusSorce->RegisterForSense(TSubclassOf<UAISense_Sight>());
+		StimulusSorce->RegisterWithPerceptionSystem();
 	}
 }
