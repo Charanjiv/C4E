@@ -1,7 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
-
-
-#include "Target.h"
+﻿#include "Target.h"
 
 #include "HealthComponent.h"
 
@@ -13,7 +10,6 @@ UTarget::UTarget()
 }
 
 
-// Called when the game starts
 void UTarget::BeginPlay()
 {
 	Super::BeginPlay();
@@ -35,7 +31,7 @@ void UTarget::BeginPlay()
 
 void UTarget::Handle_Dead(AController* causer)
 {
-	OnTargetDestroyed.Broadcast(causer, _PointsValue);
+	OnTargetDestroyed.Broadcast(GetOwner(), causer);
 	GetOwner()->Destroy();
 }
 

@@ -5,7 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "Collectable.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCollectableSignature, class ACollectable*, subject, AController*, causer);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCollectedeSignature, class ACollectable*, subject, AController*, causer);
 class USphereComponent;
 
 UCLASS(Abstract)
@@ -17,7 +17,7 @@ public:
 
 	ACollectable();
 	UPROPERTY(BlueprintAssignable)
-	FCollectableSignature OnCollected;
+	FCollectedeSignature OnCollected;
 	
 
 protected:

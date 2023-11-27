@@ -1,6 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
-
-#pragma once
+﻿#pragma once
 
 #include "CoreMinimal.h"
 #include "GameRule.h"
@@ -13,7 +11,7 @@ class C4E_API UGameRule_Target : public UGameRule
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this component's properties
+	
 	UGameRule_Target();
 
 	virtual void Init() override;
@@ -25,7 +23,7 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int _AmountRemaining;
 
 	UFUNCTION()
-	void Handle_TargetDestroyed(AController* causer, int targetValue);
+	void Handle_TargetDestroyed(AActor* target, AController* causer);
 	
 
 };

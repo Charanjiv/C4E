@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -33,7 +31,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TMap<TObjectPtr<UGameRule>, bool> _GameRuleManagers;
 
-	FTimerHandle _TimDecreaseCountdown;
+	FTimerHandle _TimeDecreaseCountdown;
 	UFUNCTION()
 	
 	void DecreaseCountdown();

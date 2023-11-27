@@ -5,6 +5,8 @@
 
 #include "C4EChar.h"
 #include "EnhancedInputSubsystems.h"
+#include "UserWidget_HUD.h"
+#include "Blueprint/UserWidget.h"
 
 #include "GameFramework/GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
@@ -20,6 +22,13 @@ void AC4EPlayerController::Init_Implementation()
 	if(UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
+	}
+	
+	if(_HUDWidgetClass)
+	{
+		_HUDWidget = CreateWidget<UUserWidget_HUD, AC4EPlayerController*>(
+			this, _HUDWidgetClass.Get());
+		_HUDWidget->AddToViewport();
 	}
 
 	if(GetPawn() != nullptr)

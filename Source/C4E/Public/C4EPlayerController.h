@@ -5,6 +5,7 @@
 #include "GameFramework/PlayerController.h"
 #include "C4EPlayerController.generated.h"
 
+class UUserWidget_HUD;
 class UInputMappingContext;
 
 UCLASS(Abstract)
@@ -27,6 +28,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess="true"))
 	TObjectPtr<UInputMappingContext> DefaultMappingContext;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget_HUD> _HUDWidgetClass;
+	TObjectPtr<UUserWidget_HUD> _HUDWidget;
 
 
 };

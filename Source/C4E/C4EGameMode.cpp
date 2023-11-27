@@ -56,7 +56,7 @@ void AC4EGameMode::DecreaseCountdown()
 	}
 	else
 	{
-		GetWorld()->GetTimerManager().SetTimer(_TimDecreaseCountdown, this, &AC4EGameMode::DecreaseCountdown, 1.f, false);
+		GetWorld()->GetTimerManager().SetTimer(_TimeDecreaseCountdown, this, &AC4EGameMode::DecreaseCountdown, 1.f, false);
 	}
 }
 
@@ -101,7 +101,7 @@ void AC4EGameMode::BeginPlay()
 
 void AC4EGameMode::HandleMatchIsWaitingToStart()
 {
-	GetWorld()->GetTimerManager().SetTimer(_TimDecreaseCountdown, this, &AC4EGameMode::DecreaseCountdown, 1.f, false);
+	GetWorld()->GetTimerManager().SetTimer(_TimeDecreaseCountdown, this, &AC4EGameMode::DecreaseCountdown, 1.f, false);
 	Super::HandleMatchIsWaitingToStart();
 }
 
