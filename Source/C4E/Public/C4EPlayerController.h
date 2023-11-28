@@ -19,6 +19,8 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	void Init();
 
+	void AddScore(int amount);
+
 	virtual void Handle_MatchStarted_Implementation() override;
 	virtual void Handle_MatchEnded_Implementation() override;
 
@@ -32,6 +34,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget_HUD> _HUDWidgetClass;
 	TObjectPtr<UUserWidget_HUD> _HUDWidget;
+
+	int _Score;
 
 
 };

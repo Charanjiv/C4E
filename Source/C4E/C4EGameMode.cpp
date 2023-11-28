@@ -74,7 +74,10 @@ void AC4EGameMode::Handle_GameRuleCompleted(UGameRule* rule)
 
 void AC4EGameMode::Handle_GameRulePointsScored(AController* scorer, int points)
 {
-	
+	if(AC4EPlayerController* castedPC = Cast<AC4EPlayerController>(scorer))
+	{
+		castedPC->AddScore(points);
+	}
 }
 
 void AC4EGameMode::BeginPlay()

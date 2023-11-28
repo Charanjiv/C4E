@@ -14,6 +14,7 @@
 
 AC4EPlayerController::AC4EPlayerController() : Super()
 {
+	_Score = 0;
 }
 
 void AC4EPlayerController::Init_Implementation()
@@ -37,6 +38,15 @@ void AC4EPlayerController::Init_Implementation()
 	}
 }
 
+
+void AC4EPlayerController::AddScore(int amount)
+{
+	_Score += amount;
+	if(_HUDWidget != nullptr)
+	{
+		_HUDWidget->UpdateScore(_Score);
+	}
+}
 
 void AC4EPlayerController::Handle_MatchStarted_Implementation()
 {

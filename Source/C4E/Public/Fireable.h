@@ -20,4 +20,5 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	bool Fire();
+	
 };
