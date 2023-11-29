@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PatrolPath.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "GameFramework/Character.h"
 #include "NPC.generated.h"
@@ -20,23 +21,29 @@ public:
 
 	ANPC();
 
-	virtual void Tick(float DeltaTime) override;
+	
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UBehaviorTree* GetBehaviourTree() const;
+
+	APatrolPath*GetPatrolPath() const;
 protected:
 
 	virtual void BeginPlay() override;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta=(AllowPrivateAccess="true"))
-	UBehaviorTree* Tree;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<AWeapon_Base> _DefaultWeapon;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<AActor> _FireableRef;
+
+private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta=(AllowPrivateAccess="true"))
+	UBehaviorTree* Tree;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="AI", meta=(AllowPrivateAccess="true"))
+	APatrolPath* PatrolPath;
+
 
 
 

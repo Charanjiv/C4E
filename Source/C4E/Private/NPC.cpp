@@ -36,11 +36,6 @@ void ANPC::BeginPlay()
 }
 
 
-void ANPC::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
 
 
 void ANPC::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -52,5 +47,10 @@ void ANPC::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 UBehaviorTree* ANPC::GetBehaviourTree() const
 {
 	return Tree;
+}
+
+APatrolPath* ANPC::GetPatrolPath() const
+{
+	return PatrolPath;
 }
 

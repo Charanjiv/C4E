@@ -1,6 +1,7 @@
 ﻿#include "Target.h"
 
 #include "HealthComponent.h"
+#include "Weapon_Base.h"
 
 
 // Sets default values for this component's properties
@@ -33,6 +34,8 @@ void UTarget::Handle_Dead(AController* causer)
 {
 	OnTargetDestroyed.Broadcast(GetOwner(), causer);
 	GetOwner()->Destroy();
+	
+	
 }
 
 
