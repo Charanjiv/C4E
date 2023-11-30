@@ -10,6 +10,7 @@
 
 #include "GameFramework/GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 
 AC4EPlayerController::AC4EPlayerController() : Super()
@@ -63,14 +64,14 @@ void AC4EPlayerController::Handle_MatchStarted_Implementation()
 
 	if(AC4EChar* castedPawn = Cast<AC4EChar>(tempPawn))
 	{
-		
 		castedPawn->Init();
 	}
 }
 
 void AC4EPlayerController::Handle_MatchEnded_Implementation()
 {
-	//SetInputMode(FInputModeUIOnly());
+	SetInputMode(FInputModeUIOnly());
+	
 	
 }
 
